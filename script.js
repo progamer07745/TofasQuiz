@@ -260,22 +260,20 @@ function renderQuestion() {
 
     questionContainer.innerHTML = html;
 
+    // أهم تعديل: نستخدم currentTarget لكل الضغطات
     document.querySelectorAll(".option-btn").forEach((button) => {
         button.addEventListener("click", (e) => {
-            selectAnswer(parseInt(e.target.dataset.index));
+            selectAnswer(parseInt(e.currentTarget.dataset.index));
         });
     });
 
     prevBtn.style.display = currentQuestionIndex === 0 ? "none" : "inline-block";
 
-    const anyUnanswered = userAnswers.includes(null); // هل في أي أسئلة فاضية؟
-
+    const anyUnanswered = userAnswers.includes(null);
     if (!anyUnanswered) {
-        // لو مفيش أسئلة ناقصة، خلي Submit ظاهر على طول
         subBtn.classList.remove("hidden");
         nextBtn.classList.add("hidden");
     } else {
-        // لو فيه أسئلة ناقصة، خلي الزرار يظهر بس في آخر سؤال
         if (currentQuestionIndex === questions.length - 1) {
             nextBtn.classList.add("hidden");
             subBtn.classList.remove("hidden");
@@ -287,6 +285,7 @@ function renderQuestion() {
 
     updateProgressBar();
 }
+
 
 
 function selectAnswer(index) {
