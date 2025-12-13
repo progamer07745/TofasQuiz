@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>TOFAS QUIZ</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    </head>
+    <body>
+        <!-- Info about the contributers in the quiz -->
+        <div id="logo-text">
+            <img src="Imgs/11zon_cropped.png" alt="Trio-Coders Logo"  />
+            <p>TOFAZ QUIZ SIMULATOR</p>
+            <p>by (Trio-Coders): <br />Omar Mostafa, <br /> Ahmed Mohamed, <br /> Mohamed Khaled</p>
+        </div>
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen active">
+            <h1>Welcome to the TOFAS QUIZ</h1>
+            <p>num of questions : 20 | Time : 5 mins</p>
+            <button id="start-btn">Start Quiz</button>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="screen hidden">
+            <div id="timer"><span id="timer-text">05:00</span></div>
+            <div id="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+            <div id="question-container"></div>
+            <div class="controls">
+                <button id="prev-btn">Previous</button>
+                <button id="next-btn">Next</button>
+                <button id="sub-btn" class="hidden submit-btn">Submit</button>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result-screen" class="screen hidden">
+            <h2>Result: <span id="score"></span></h2>
+            <button id="review-btn">Review Mistakes</button>
+            <button onclick="location.reload()">Retry</button>
+        </div>
+
+        <!-- Review Screen -->
+        <div id="review-screen" class="screen hidden">
+            <h2>Review Mistakes</h2>
+            <div id="review-container"></div>
+            <button onclick="location.reload()">Main menu</button>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
