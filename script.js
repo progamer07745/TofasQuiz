@@ -186,7 +186,7 @@ const questions = [
 let currentQuestionIndex = 0;
 let userAnswers = new Array(questions.length).fill(null);
 let timerInterval;
-let timeInSeconds = 300;
+let timeInSeconds = 1200; // 20 minutes
 
 // 3. DOM Elements
 const startScreen = document.getElementById("start-screen");
