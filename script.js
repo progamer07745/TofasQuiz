@@ -260,12 +260,14 @@ function renderQuestion() {
 
     questionContainer.innerHTML = html;
 
-    // أهم تعديل: نستخدم currentTarget لكل الضغطات
     document.querySelectorAll(".option-btn").forEach((button) => {
-        button.addEventListener("click", (e) => {
+        button.addEventListener("click", (e) => selectAnswer(parseInt(e.currentTarget.dataset.index)));
+        button.addEventListener("touchstart", (e) => {
+            e.preventDefault();
             selectAnswer(parseInt(e.currentTarget.dataset.index));
         });
     });
+
 
     prevBtn.style.display = currentQuestionIndex === 0 ? "none" : "inline-block";
 
@@ -290,8 +292,27 @@ function renderQuestion() {
 
 function selectAnswer(index) {
     userAnswers[currentQuestionIndex] = index;
-    renderQuestion();
+
+    // إزالة تحديد من كل الأزرار
+    document.querySelectorAll(".option-btn").forEach((btn) => {
+        btn.classList.remove("selected");
+    });
+
+    // تعليم الزرار اللي اختاره المستخدم
+    const chosenBtn = document.querySelector(`.option-btn[data-index='${index}']`);
+    if (chosenBtn) chosenBtn.classList.add("selected");
+
+    // شيك لو كل الأسئلة محلولة، خلي Submit ظاهر فورًا
+    const anyUnanswered = userAnswers.includes(null);
+    if (!anyUnanswered) {
+        subBtn.classList.remove("hidden");
+        nextBtn.classList.add("hidden");
+    }
+
+    // مش محتاجين نعيد renderQuestion() بالكامل
+    updateProgressBar();
 }
+
 
 function nextQuestion() {
     if (currentQuestionIndex < questions.length - 1) {

@@ -59,18 +59,19 @@ h3 {
     margin: 20px;
 }
 
-#question-container {
-    user-select: none;      /* يمنع تحديد النص */
-    -webkit-user-select: none; /* للسفاري */
-    -moz-user-select: none;    /* للفايرفوكس */
-    -ms-user-select: none;     /* للإنترنت اكسبلورر */
-    pointer-events: none;   /* لو عايز تمنع أي تفاعل مع النص نهائياً */
+/* منع تحديد النص فقط */
+#question-container h3, 
+#question-container .q-text {
+    user-select: none;        /* لكل المتصفحات */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
-
-#question-container {
-    -webkit-touch-callout: none; /* يمنع قائمة النسخ في iOS */
-    touch-action: none;           /* يمنع التفاعل بالسحب */
+/* السماح بالضغط على الأزرار */
+.option-btn {
+    pointer-events: auto;     /* مهم */
+    touch-action: auto;       /* مهم للموبايل */
 }
 
 
