@@ -72,114 +72,114 @@ const questions = [
         explanation:
             "<span dir='rtl'>&& (AND) يعيد true فقط إذا كان كلا الطرفين true، هنا false.</span>",
     },
-    // // 9. Logical operator
-    // {
-    //     id: 9,
-    //     text: "What is the output of this code: <br /> console.log(true || false);",
-    //     options: ["true", "false", "undefined", "Error"],
-    //     correct: 0,
-    //     explanation:
-    //         "<span dir='rtl'>|| (OR) يعيد true إذا كان أي طرف true، هنا الطرف الأول true.</span>",
-    // },
-    // // 10. Iterative operation
-    // {
-    //     id: 10,
-    //     text: "What is the output of this code: <br /> for(let i = 0; i < 2; i++){ console.log('Test'); }",
-    //     options: ["Once", "Twice", "Three times", "Error"],
-    //     correct: 1,
-    //     explanation:
-    //         "<span dir='rtl'>الحلقة تبدأ من i=0 وتكرر مرتين (i=0 و i=1)، لذلك 'Test' تظهر مرتين.</span>",
-    // },
-    // // 11. Comprehension Check (falsy value)
-    // {
-    //     id: 11,
-    //     text: "What is the output of this code: <br /> let x = 0; <br /> if(x) { <br /> &nbsp; console.log('Yes'); <br /> } else { <br /> &nbsp; console.log('No'); <br /> }",
-    //     options: ["Yes", "No", "0", "Error"],
-    //     correct: 1,
-    //     explanation:
-    //         "<span dir='rtl'>0 يعتبر falsy في جافاسكربت، لذلك تم تنفيذ else وطباعة 'No'.</span>",
-    // },
-    // // 12. Function (1)
-    // {
-    //     id: 12,
-    //     text: "What is the output of this code: <br /> function greet(){ <br /> &nbsp; return 'Hello'; <br /> } <br />  &nbsp;console.log(greet());",
-    //     options: ["greet", "Hello", "undefined", "Error"],
-    //     correct: 1,
-    //     explanation:
-    //         "<span dir='rtl'>الدالة ترجع 'Hello'، لذلك console.log يطبع 'Hello'.</span>",
-    // },
-    // // 13. Function (2)
-    // {
-    //     id: 13,
-    //     text: "What is the output of this code: <br /> function add(a,b){ <br /> &nbsp; return a+b; <br /> } <br /> &nbsp; console.log(add(2,3));",
-    //     options: ["5", "23", "undefined", "Error"],
-    //     correct: 0,
-    //     explanation:
-    //         "<span dir='rtl'>2+3 = 5، لذلك console.log(add(2,3)) يطبع 5.</span>",
-    // },
-    // // 14. Comprehension Check (type coercion)
-    // {
-    //     id: 14,
-    //     text: "What is the output of this code: <br /> console.log('5' - 2);",
-    //     options: ["3", "52", "NaN", "Error"],
-    //     correct: 0,
-    //     explanation:
-    //         "<span dir='rtl'>الطرح يجبر النص '5' على التحول لرقم، 5-2=3.</span>",
-    // },
-    // // 15. Tricky boolean logic
-    // {
-    //     id: 15,
-    //     text: "What is the output of this code: <br /> console.log(true + false + true);",
-    //     options: ["2", "1", "truefalsetrue", "Error"],
-    //     correct: 0,
-    //     explanation:
-    //         "<span dir='rtl'>في جافاسكربت، true يتحوّل إلى 1 و false إلى 0 عند العمليات الحسابية. إذن: 1 + 0 + 1 = 2.</span>",
-    // },
-    // // 16. Array
-    // {
-    //     id: 16,
-    //     text: "What is the output of this code: <br /> let arr = [1,2,3]; <br /> console.log(arr[3]);",
-    //     options: ["3", "undefined", "0", "Error"],
-    //     correct: 1,
-    //     explanation:
-    //         "<span dir='rtl'>arr[3] غير موجود، لذلك القيمة undefined.</span>",
-    // },
-    // // 17. Increment operators
-    // {
-    //     id: 17,
-    //     text: "What is the output of this code: <br /> let x = 5; <br /> x++; <br /> console.log(x);",
-    //     options: ["5", "6", "'6'", "Error"],
-    //     correct: 1,
-    //     explanation:
-    //         "<span dir='rtl'>x++ يزيد x بمقدار 1، لذلك console.log(x) = 6.</span>",
-    // },
-    // // 18. Floating point tricky
-    // {
-    //     id: 18,
-    //     text: 'ركززززززز 🔥 (السؤال مش متكرر، خلي بالك)<br /><br /> What is the output of this code: <br /> let x = "0"; <br /> if(x) { <br /> &nbsp; console.log("Yes"); <br /> } else { <br /> &nbsp; console.log("No"); <br /> }',
-    //     options: ["Yes", "No", "0", "Error"],
-    //     correct: 0,
-    //     explanation:
-    //         "<span dir='rtl'>أي نص غير فارغ يعتبر true، حتى لو النص '0'. لذلك تم تنفيذ if وطباعة 'Yes'.</span>",
-    // },
-    // // 19. Tricky equality
-    // {
-    //     id: 19,
-    //     text: "What is the output of this code: <br /> console.log(0 == '0');",
-    //     options: ["true", "false", "Error", "undefined"],
-    //     correct: 0,
-    //     explanation:
-    //         "<span dir='rtl'>المساواة == تقوم بتحويل النوع قبل المقارنة، لذلك 0 (رقم) و '0' (نص) يعتبران متساويين، فتكون النتيجة true.</span>",
-    // },
-    // // 20. Types tricky (أصعب سؤال)
-    // {
-    //     id: 20,
-    //     text: "What is the output of this code: <br /> let x = 5; <br /> let y = x; <br /> y = y + 3; <br /> console.log(x);",
-    //     options: ["5", "8", "undefined", "Error"],
-    //     correct: 0,
-    //     explanation:
-    //         "<span dir='rtl'>الأرقام primitive، نسخ القيمة لا يغير المتغير الأصلي. تعديل y لا يؤثر على x.</span>",
-    // },
+    // 9. Logical operator
+    {
+        id: 9,
+        text: "What is the output of this code: <br /> console.log(true || false);",
+        options: ["true", "false", "undefined", "Error"],
+        correct: 0,
+        explanation:
+            "<span dir='rtl'>|| (OR) يعيد true إذا كان أي طرف true، هنا الطرف الأول true.</span>",
+    },
+    // 10. Iterative operation
+    {
+        id: 10,
+        text: "What is the output of this code: <br /> for(let i = 0; i < 2; i++){ console.log('Test'); }",
+        options: ["Once", "Twice", "Three times", "Error"],
+        correct: 1,
+        explanation:
+            "<span dir='rtl'>الحلقة تبدأ من i=0 وتكرر مرتين (i=0 و i=1)، لذلك 'Test' تظهر مرتين.</span>",
+    },
+    // 11. Comprehension Check (falsy value)
+    {
+        id: 11,
+        text: "What is the output of this code: <br /> let x = 0; <br /> if(x) { <br /> &nbsp; console.log('Yes'); <br /> } else { <br /> &nbsp; console.log('No'); <br /> }",
+        options: ["Yes", "No", "0", "Error"],
+        correct: 1,
+        explanation:
+            "<span dir='rtl'>0 يعتبر falsy في جافاسكربت، لذلك تم تنفيذ else وطباعة 'No'.</span>",
+    },
+    // 12. Function (1)
+    {
+        id: 12,
+        text: "What is the output of this code: <br /> function greet(){ <br /> &nbsp; return 'Hello'; <br /> } <br />  &nbsp;console.log(greet());",
+        options: ["greet", "Hello", "undefined", "Error"],
+        correct: 1,
+        explanation:
+            "<span dir='rtl'>الدالة ترجع 'Hello'، لذلك console.log يطبع 'Hello'.</span>",
+    },
+    // 13. Function (2)
+    {
+        id: 13,
+        text: "What is the output of this code: <br /> function add(a,b){ <br /> &nbsp; return a+b; <br /> } <br /> &nbsp; console.log(add(2,3));",
+        options: ["5", "23", "undefined", "Error"],
+        correct: 0,
+        explanation:
+            "<span dir='rtl'>2+3 = 5، لذلك console.log(add(2,3)) يطبع 5.</span>",
+    },
+    // 14. Comprehension Check (type coercion)
+    {
+        id: 14,
+        text: "What is the output of this code: <br /> console.log('5' - 2);",
+        options: ["3", "52", "NaN", "Error"],
+        correct: 0,
+        explanation:
+            "<span dir='rtl'>الطرح يجبر النص '5' على التحول لرقم، 5-2=3.</span>",
+    },
+    // 15. Tricky boolean logic
+    {
+        id: 15,
+        text: "What is the output of this code: <br /> console.log(true + false + true);",
+        options: ["2", "1", "truefalsetrue", "Error"],
+        correct: 0,
+        explanation:
+            "<span dir='rtl'>في جافاسكربت، true يتحوّل إلى 1 و false إلى 0 عند العمليات الحسابية. إذن: 1 + 0 + 1 = 2.</span>",
+    },
+    // 16. Array
+    {
+        id: 16,
+        text: "What is the output of this code: <br /> let arr = [1,2,3]; <br /> console.log(arr[3]);",
+        options: ["3", "undefined", "0", "Error"],
+        correct: 1,
+        explanation:
+            "<span dir='rtl'>arr[3] غير موجود، لذلك القيمة undefined.</span>",
+    },
+    // 17. Increment operators
+    {
+        id: 17,
+        text: "What is the output of this code: <br /> let x = 5; <br /> x++; <br /> console.log(x);",
+        options: ["5", "6", "'6'", "Error"],
+        correct: 1,
+        explanation:
+            "<span dir='rtl'>x++ يزيد x بمقدار 1، لذلك console.log(x) = 6.</span>",
+    },
+    // 18. Floating point tricky
+    {
+        id: 18,
+        text: 'ركززززززز 🔥 (السؤال مش متكرر، خلي بالك)<br /><br /> What is the output of this code: <br /> let x = "0"; <br /> if(x) { <br /> &nbsp; console.log("Yes"); <br /> } else { <br /> &nbsp; console.log("No"); <br /> }',
+        options: ["Yes", "No", "0", "Error"],
+        correct: 0,
+        explanation:
+            "<span dir='rtl'>أي نص غير فارغ يعتبر true، حتى لو النص '0'. لذلك تم تنفيذ if وطباعة 'Yes'.</span>",
+    },
+    // 19. Tricky equality
+    {
+        id: 19,
+        text: "What is the output of this code: <br /> console.log(0 == '0');",
+        options: ["true", "false", "Error", "undefined"],
+        correct: 0,
+        explanation:
+            "<span dir='rtl'>المساواة == تقوم بتحويل النوع قبل المقارنة، لذلك 0 (رقم) و '0' (نص) يعتبران متساويين، فتكون النتيجة true.</span>",
+    },
+    // 20. Types tricky (أصعب سؤال)
+    {
+        id: 20,
+        text: "What is the output of this code: <br /> let x = 5; <br /> let y = x; <br /> y = y + 3; <br /> console.log(x);",
+        options: ["5", "8", "undefined", "Error"],
+        correct: 0,
+        explanation:
+            "<span dir='rtl'>الأرقام primitive، نسخ القيمة لا يغير المتغير الأصلي. تعديل y لا يؤثر على x.</span>",
+    }
 ];
 
 // 2. State Variables
@@ -350,7 +350,6 @@ function submitQuiz(auto = false) {
         perfectMessage.id = "great-job-message";
         perfectMessage.innerHTML = "Great Job! All answers are correct. 🎉";
         resultScreen.insertBefore(perfectMessage, reviewBtn);
-        reviewBtn.style.display = "none";
     } else {
         reviewBtn.style.display = "inline-block";
     }
