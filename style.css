@@ -59,6 +59,21 @@ h3 {
     margin: 20px;
 }
 
+#question-container {
+    user-select: none;      /* يمنع تحديد النص */
+    -webkit-user-select: none; /* للسفاري */
+    -moz-user-select: none;    /* للفايرفوكس */
+    -ms-user-select: none;     /* للإنترنت اكسبلورر */
+    pointer-events: none;   /* لو عايز تمنع أي تفاعل مع النص نهائياً */
+}
+
+
+#question-container {
+    -webkit-touch-callout: none; /* يمنع قائمة النسخ في iOS */
+    touch-action: none;           /* يمنع التفاعل بالسحب */
+}
+
+
 #start-screen h1 {
     font-size: 2.5rem;
     color: #007bff;
