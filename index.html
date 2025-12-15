@@ -4,22 +4,44 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>TOFAS QUIZ</title>
-        <meta name="google-site-verification" content="Pnp8Ah-_r53I4-gSOzrimbnm_GUe6D-jAwANo-jVras" />
+        <meta
+            name="google-site-verification"
+            content="Pnp8Ah-_r53I4-gSOzrimbnm_GUe6D-jAwANo-jVras"
+        />
         <link rel="stylesheet" href="style.css" />
         <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     </head>
     <body>
         <!-- Info about the contributers in the quiz -->
         <div id="logo-text">
-            <img src="Imgs/11zon_cropped.png" alt="Trio-Coders Logo"  />
+            <img src="Imgs/11zon_cropped.png" alt="Trio-Coders Logo" />
             <p>TOFAS QUIZ SIMULATOR</p>
-            <p>by (Trio-Coders): <br />Omar Mostafa, <br /> Ahmed Mohamed, <br /> Mohamed Khaled</p>
+            <p>
+                by (Trio-Coders): <br />Omar Mostafa, <br />
+                Ahmed Mohamed, <br />
+                Mohamed Khaled
+            </p>
         </div>
+
         <!-- Start Screen -->
         <div id="start-screen" class="screen active">
             <h1>Welcome to the TOFAS QUIZ</h1>
-            <p>num of questions : 20 | Time : 20 mins</p>
-            <button id="start-btn">Start Quiz</button>
+            <input type="text" id="student-name" placeholder="Enter your name" />
+            <p>Choose your exam model</p>
+
+            <div class=models">
+                <div id="model-1" class="model-card">
+                    <h3>Model 1</h3>
+                    <p>20 Questions | 20 Minutes</p>
+                    <button id="start-model-1">Start now</button>
+                </div>
+
+                <div id="model-2" class="model-card locked">
+                    <h3>Model 2 🔒</h3>
+                    <p>20 Questions | 20 Minutes</p>
+                    <button id="start-model-2" disabled>Start now</button>
+                </div>
+            </div>
         </div>
 
         <!-- Quiz Screen -->
@@ -38,6 +60,7 @@
 
         <!-- Result Screen -->
         <div id="result-screen" class="screen hidden">
+            <h3 id="student-name-display"></h3>
             <h2>Result: <span id="score"></span></h2>
             <button id="review-btn">Review Answers</button>
             <button onclick="location.reload()">Retry</button>
