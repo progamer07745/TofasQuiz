@@ -34,7 +34,7 @@ const questionsA = [
     },
     {
         id: 5,
-        text: "What is the output of this code: <br /> let x = 5; <br /> if(x > 3) { console.log('Hi'); }",
+        text: "What is the output of this code: <br /> let x = 5; <br /> if(x > 3) <br /> &nbsp; { console.log('Hi'); }",
         options: ["Error", "Hi", "Nothing", "5"],
         correct: 1,
         explanation:
@@ -42,7 +42,7 @@ const questionsA = [
     },
     {
         id: 6,
-        text: "What is the output of this code: <br /> let x = 10; <br /> if(x === '10') { console.log('Same'); } else { console.log('Not Same'); }",
+        text: "What is the output of this code: <br /> let x = 10; <br /> if(x === '10') <br /> &nbsp; { console.log('Same'); <br /> } else { console.log('Not Same'); }",
         options: ["Error", "Not Same", "Same", "10"],
         correct: 1,
         explanation:
@@ -329,10 +329,13 @@ let userAnswers = [];
 let timerInterval;
 let timeInSeconds = 1200; // 20 minutes
 
+let firstSubmitAttempted = false; // علامة لمحاولة التسليم الأولى
+
+
 let questions = [];
 let currentQuizType = "A";
 
-let passingScore = questions.length / 1.2;
+let passingScore;
 
 // 3. DOM Elements
 const startScreen = document.getElementById("start-screen");
@@ -382,6 +385,16 @@ document.getElementById("start-model-1").addEventListener("click", () => {
 
 // start model 2
 document.getElementById("start-model-2").addEventListener("click", () => {
+    
+    const nameInput = document.getElementById("student-name").value.trim();
+
+    if (!nameInput) {
+        alert("Please enter your name!");
+        return;
+    }
+
+    studentName = nameInput;
+    
     currentQuizType = "B";
     questions = questionsB;
     userAnswers = new Array(questions.length).fill(null);
@@ -522,7 +535,6 @@ function prevQuestion() {
     }
 }
 
-let firstSubmitAttempted = false; // علامة لمحاولة التسليم الأولى
 
 async function submitQuiz(auto = false) {
     if (!auto) {
@@ -556,6 +568,8 @@ async function submitQuiz(auto = false) {
     userAnswers.forEach((answer, index) => {
         if (answer === questions[index].correct) score++;
     });
+
+    passingScore = Math.ceil(questions.length / 1.2);
 
     if (score >= passingScore) {
         localStorage.setItem(studentName + "_model2_unlocked", "true");
